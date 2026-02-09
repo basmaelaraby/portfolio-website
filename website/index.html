@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basma Elaraby | Creative Technologist</title>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            primary: '#6366f1',
+            secondary: '#8b5cf6',
+            dark: '#0f0f23',
+            darker: '#0a0a1a',
+          },
+          animation: {
+            'gradient': 'gradient 8s ease infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+      <!-- background: linear-gradient(135deg, #588c6b 10%, #8b5cf6 50%, #ec4899 100%); -->
+  <!-- 0a0a1a back ground, 948a86 letter b,  -->
+  <style>
+    body {
+      background: #0a0a1a; 
+      color: #fcfaf8;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #7fca9c 40%, #48bdec 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .glass-hover:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .skill-bar {
+      background: linear-gradient(90deg, #7fca9c, #48bdec);
+    }
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#hero" class="font-display font-bold text-xl gradient-text">Basma Elaraby</a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition">About</a>
+          <a href="#projects" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition">Projects</a>
+          <a href="#experience" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition">Experience</a>
+          <a href="#skills" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition">Skills</a>
+          <a href="#resume" class="nav-link text-sm font-medium text-slate-300 hover:text-white transition">Resume</a>
+          <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full text-sm font-medium hover:shadow-lg hover:shadow-primary/25 transition">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-white">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#about" class="block text-sm font-medium text-slate-300 hover:text-white">About</a>
+        <a href="#projects" class="block text-sm font-medium text-slate-300 hover:text-white">Projects</a>
+        <a href="#experience" class="block text-sm font-medium text-slate-300 hover:text-white">Experience</a>
+        <a href="#skills" class="block text-sm font-medium text-slate-300 hover:text-white">Skills</a>
+        <a href="#resume" class="block text-sm font-medium text-slate-300 hover:text-white">Resume</a>
+        <a href="#contact" class="block text-sm font-medium text-primary">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <!-- <p class="text-primary font-medium mb-4 tracking-wide uppercase text-sm">Hello, I'm Basma Elaraby</p> -->
+        <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl mb-6 leading-tight">
+          Where <span class="gradient-text">Code</span> Meets<br>
+          <span class="gradient-text">Creativity</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+          A computer science background with a curiosity for design and how digital experiences come together.        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#projects" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:shadow-lg hover:shadow-primary/25 transition flex items-center gap-2">
+            View My Work
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#contact" class="px-8 py-4 glass glass-hover rounded-full font-medium transition">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="text-primary font-medium mb-2 tracking-wide uppercase text-sm">About Me</p>
+          <h2 class="font-display font-bold text-4xl sm:text-5xl mb-6">
+            From Algorithms<br>to Aesthetics
+          </h2>
+          
+          <div class="space-y-4 text-slate-400 leading-relaxed">
+            <p>
+              I come from a computer science background, and I still really enjoy it. I like understanding how things work under the hood, and turning ideas into real, usable products.
+            </p>
+            <p>
+              At the same time, I’m drawn to design in digital and virtual spaces. UX and UI are a big part of that, but I also love visual design overall - layout, typography, color, and interaction.
+            </p>
+            <p>
+              I don’t see CS and design as separate paths. My technical background helps me design things that make sense, are realistic to build, and work well with engineering teams, while still looking and feeling polished.
+            </p>
+          </div>
+        </div>
+        
+        <div class="reveal relative">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-xl opacity-30"></div>
+            <div class="relative overflow-hidden rounded-[48px] bg-[#cfd6e4] aspect-[5/6]">
+              <img
+                src="assets/hello.png"
+                alt="Basma illustration"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+        <!-- Projects Section -->
+<section id="projects" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <p class="text-primary font-medium mb-2 tracking-wide uppercase text-sm">Selected work</p>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl mb-4">Projects</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">
+        A few projects that highlight how I explore design across UX, UI, and visual expression, while staying grounded in technical thinking.        </p>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project 1 -->
+      <a href="https://github.com/basmaelaraby/portfolio-website" target="_blank" class="project-card group reveal glass rounded-2xl overflow-hidden cursor-pointer block">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="assets/project1.png" alt="Portfolio Website" class="w-full h-full object-cover transition duration-500">
+          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 transition duration-300 flex items-end p-6">
+            <div>
+              <p class="text-primary text-sm font-medium mb-1">Personal site</p>
+              <p class="text-slate-300 text-sm">HTML, Tailwind, GitHub</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-semibold text-xl mb-2 group-hover:text-primary transition">Portfolio website</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Designed and built this website from scratch using HTML and Tailwind CSS. Serves as a living project to explore layout, typography, and visual systems, with the code published on GitHub.
+          </p>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="https://ajar-face-7e3.notion.site/ArtConnect-Museum-Discovery-App-30131cf68f2a80b18cd6eb41964a89e6" target="_blank" class="project-card group reveal glass rounded-2xl overflow-hidden cursor-pointer block">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="assets/project2.png" alt="ArtConnect" class="w-full h-full object-cover transition duration-500">
+          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 transition duration-300 flex items-end p-6">
+            <div>
+              <p class="text-primary text-sm font-medium mb-1">Mobile app design</p>
+              <p class="text-slate-300 text-sm">Research, flows, wireframes, hi-fi</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-semibold text-xl mb-2 group-hover:text-primary transition">The ArtConnect app</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            A UX case study completed as part of the Google UX Design Certificate, focused on connecting artists through a mobile experience. Includes user research, ideation, wireframes, and high-fidelity designs.
+          </p>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="assets/artworks.pdf" target="_blank" class="project-card group reveal glass rounded-2xl overflow-hidden cursor-pointer block">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="assets/project3.png" alt="Procreate Artwork" class="w-full h-full object-cover transition duration-500">
+          <div class="project-overlay absolute inset-0 bg-gradient-to-t from-darker via-darker/80 to-transparent opacity-0 transition duration-300 flex items-end p-6">
+            <div>
+              <p class="text-primary text-sm font-medium mb-1">Visual exploration</p>
+              <p class="text-slate-300 text-sm">Illustration, composition, style</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-semibold text-xl mb-2 group-hover:text-primary transition">Procreate artwork</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            A collection of personal artwork created in Procreate, exploring different styles, moods, and visual approaches as part of an ongoing interest in digital and visual design.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+  
+
+  <!-- Experience Section -->
+<section id="experience" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <p class="text-primary font-medium mb-2 tracking-wide uppercase text-sm">Background</p>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl mb-4">Experience</h2>
+    </div>
+    <div class="max-w-3xl mx-auto">
+      <!-- Timeline -->
+      <div class="relative">
+        <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-primary to-secondary"></div>
+        
+        <!-- Experience 1 -->
+        <div class="relative pl-12 pb-12 reveal">
+          <div class="absolute left-0 w-8 h-8 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+          </div>
+          <div class="glass glass-hover rounded-xl p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">Current</span>
+              <span class="text-slate-400 text-sm">Jan 2025 - Present</span>
+            </div>
+            <h3 class="font-display font-semibold text-xl mb-1">Technical Specialist</h3>
+            <p class="text-primary mb-3">Apple</p>
+            <ul class="space-y-2 text-slate-400 text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Support customers with technical troubleshooting across Apple hardware and software</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Translate complex technical issues into clear, user-friendly explanations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Collaborate with team members to deliver high-quality customer experiences</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Develop strong communication skills through real-time problem solving and user interaction</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="relative pl-12 pb-12 reveal">
+          <div class="absolute left-0 w-8 h-8 rounded-full glass flex items-center justify-center">
+            <i data-lucide="palette" class="w-4 h-4 text-primary"></i>
+          </div>
+          <div class="glass glass-hover rounded-xl p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-slate-400 text-sm">Summer 2025 - Present</span>
+            </div>
+            <h3 class="font-display font-semibold text-xl mb-1">Certifications</h3>
+            <p class="text-primary mb-3">Google UX Design Certificate & Others</p>
+            <ul class="space-y-2 text-slate-400 text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Foundations of UX Design</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Empathize, Define, and Ideate</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Wireframes and Low-Fidelity Prototypes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>UX Research and Testing</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>High-Fidelity Designs and Prototypes in Figma</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Dynamic UI for Websites</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Typography and Layout</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Color Theory and Application in Adobe Illustrator</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="relative pl-12 pb-12 reveal">
+          <div class="absolute left-0 w-8 h-8 rounded-full glass flex items-center justify-center">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-primary"></i>
+          </div>
+          <div class="glass glass-hover rounded-xl p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-slate-400 text-sm">Sep 2019 - Dec 2024</span>
+            </div>
+            <h3 class="font-display font-semibold text-xl mb-1">B.S. Computer Science</h3>
+            <p class="text-primary mb-3">University of Minnesota</p>
+            <ul class="space-y-2 text-slate-400 text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>GPA: 3.7/4.0, Dean's List</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Relevant: Human-Computer Interaction, Computer Graphics, Web Development</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="relative pl-12 pb-12 reveal">
+          <div class="absolute left-0 w-8 h-8 rounded-full glass flex items-center justify-center">
+            <i data-lucide="code-2" class="w-4 h-4 text-primary"></i>
+          </div>
+          <div class="glass glass-hover rounded-xl p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-slate-400 text-sm">Jun 2024 - Sep 2024</span>
+            </div>
+            <h3 class="font-display font-semibold text-xl mb-1">Programming Tutor</h3>
+            <p class="text-primary mb-3">CODEify · Remote</p>
+            <ul class="space-y-2 text-slate-400 text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Tutored teenagers in programming fundamentals and problem-solving techniques</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Explained technical concepts in a clear, structured, and approachable way</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 5 - Manager & Customer Service Lead -->
+        <div class="relative pl-12 pb-12 reveal">
+          <div class="absolute left-0 w-8 h-8 rounded-full glass flex items-center justify-center">
+            <i data-lucide="store" class="w-4 h-4 text-primary"></i>
+          </div>
+          <div class="glass glass-hover rounded-xl p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-slate-400 text-sm">2021 - 2023</span>
+            </div>
+            <h3 class="font-display font-semibold text-xl mb-1">Manager & Customer Service Lead</h3>
+            <p class="text-primary mb-3">YO! Pizza & Fries · Little Canada, MN</p>
+            <ul class="space-y-2 text-slate-400 text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Managed scheduling, vendor relations, and training for team members</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Implemented process improvements that increased efficiency and customer satisfaction</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 6 - Youth Event Coordinator -->
+        <div class="relative pl-12 reveal">
+          <div class="absolute left-0 w-8 h-8 rounded-full glass flex items-center justify-center">
+            <i data-lucide="calendar-heart" class="w-4 h-4 text-primary"></i>
+          </div>
+          <div class="glass glass-hover rounded-xl p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-slate-400 text-sm">2021 - 2024</span>
+            </div>
+            <h3 class="font-display font-semibold text-xl mb-1">Youth Event Coordinator</h3>
+            <p class="text-primary mb-3">Eastern Twin Cities Islamic Center</p>
+            <ul class="space-y-2 text-slate-400 text-sm">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Designed the youth group logo for their Instagram presence</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Planned community events and managed budgets for youth programs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                <span>Gathered participant feedback to iterate on engagement and communications</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <p class="text-primary font-medium mb-2 tracking-wide uppercase text-sm">Capabilities</p>
+        <h2 class="font-display font-bold text-4xl sm:text-5xl mb-4">Skills & Tools</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">
+          My unique blend of technical and creative skills allows me to bridge the gap between design and development.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Design Skills -->
+        <div class="reveal glass rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mb-6">
+            <i data-lucide="palette" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="font-display font-semibold text-xl mb-6">Design</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">UI Design</span>
+                <span class="text-sm text-primary">85%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">UX Research</span>
+                <span class="text-sm text-primary">70%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">Visual Design</span>
+                <span class="text-sm text-primary">70%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="reveal glass rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center mb-6">
+            <i data-lucide="code-2" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="font-display font-semibold text-xl mb-6">Development</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">HTML/CSS</span>
+                <span class="text-sm text-primary">95%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">Python</span>
+                <span class="text-sm text-primary">90%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">C++</span>
+                <span class="text-sm text-primary">75%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 75%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-sm text-slate-300">SQL</span>
+                <span class="text-sm text-primary">70%</span>
+              </div>
+              <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="skill-bar h-full rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="reveal glass rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-purple-500 flex items-center justify-center mb-6">
+            <i data-lucide="wrench" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="font-display font-semibold text-xl mb-6">Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Figma</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">VS Code</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Git</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Jira</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Notion</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">After Effects</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">HTML</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">CSS</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Procreate</span>
+
+          </div>
+          
+          <h4 class="font-medium text-slate-300 mt-6 mb-3">Soft Skills</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Problem Solving</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Communication</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Collaboration</span>
+            <span class="px-3 py-1.5 glass rounded-lg text-sm text-slate-300">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="py-24 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal glass rounded-3xl p-12 relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+        
+        <div class="relative z-10">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="file-text" class="w-8 h-8 text-white"></i>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">Download My Resume</h2>
+          <p class="text-slate-400 mb-8 max-w-lg mx-auto">
+            Get a comprehensive overview of my experience, skills, and education. Available in PDF format.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:shadow-lg hover:shadow-primary/25 transition flex items-center gap-2">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              Download PDF
+            </a>
+            <a href="#" class="px-8 py-4 glass glass-hover rounded-full font-medium transition flex items-center gap-2">
+              <i data-lucide="external-link" class="w-5 h-5"></i>
+              View Online
+            </a>
+          </div>
+          
+          <p class="mt-6 text-sm text-slate-500">
+            Last updated: January 2025
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="text-primary font-medium mb-2 tracking-wide uppercase text-sm">Get In Touch</p>
+      <h2 class="font-display font-bold text-4xl sm:text-5xl mb-4">Contact</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        I'm always excited to discuss new opportunities, creative projects, or just chat about design and technology. Reach out and let's connect!
+      </p>
+    </div>
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto reveal">
+
+  <!-- Email -->
+  <a
+    href="mailto:basmaelaraby262@gmail.com"
+    class="glass glass-hover rounded-2xl p-4 transition block text-center"
+  >
+    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center mb-4 mx-auto">
+      <i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+    </div>
+    <p class="text-slate-200 font-semibold mb-1">Email</p>
+    <p
+      class="text-slate-400 text-sm truncate max-w-[230px] mx-auto"
+      title="basmaelaraby262@gmail.com"
+    >
+      basmaelaraby262@gmail.com
+    </p>
+  </a>
+
+  <!-- LinkedIn -->
+  <a
+    href="https://www.linkedin.com/in/basma-elaraby-20207b267/"
+    target="_blank"
+    rel="noreferrer"
+    class="glass glass-hover rounded-2xl p-4 transition block text-center"
+  >
+    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center mb-4 mx-auto">
+      <i data-lucide="linkedin" class="w-5 h-5 text-primary"></i>
+    </div>
+    <p class="text-slate-200 font-semibold mb-1">LinkedIn</p>
+    <p class="text-slate-400 text-sm">View profile</p>
+  </a>
+
+  <!-- GitHub -->
+  <a
+    href="https://github.com/basmaelaraby"
+    target="_blank"
+    rel="noreferrer"
+    class="glass glass-hover rounded-2xl p-4 transition block text-center"
+  >
+    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center mb-4 mx-auto">
+      <i data-lucide="github" class="w-5 h-5 text-primary"></i>
+    </div>
+    <p class="text-slate-200 font-semibold mb-1">GitHub</p>
+    <p class="text-slate-400 text-sm">View repositories</p>
+  </a>
+
+  <!-- Location -->
+  <div class="glass rounded-2xl p-4 text-center">
+    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center mb-4 mx-auto">
+      <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+    </div>
+    <p class="text-slate-200 font-semibold mb-1">Location</p>
+    <p class="text-slate-400 text-sm">St. Paul, MN</p>
+    <p class="text-slate-500 text-sm mt-2">Willing to relocate</p>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealOnScroll = () => {
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    // Initial check
+    revealOnScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', revealOnScroll);
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('shadow-lg', 'shadow-black/20');
+      } else {
+        nav.classList.remove('shadow-lg', 'shadow-black/20');
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Elara Chat Widget -->
+<button id="elara-fab" aria-label="Open chat" type="button">
+  <span class="elara-sparkle">✦</span>
+</button>
+
+<section id="elara-panel" aria-label="Elara chat" role="dialog" aria-modal="false">
+  <header class="elara-header">
+    <div>
+      <div class="elara-title">Elara</div>
+      <div class="elara-subtitle">AI assistant</div>
+    </div>
+    <button id="elara-close" class="elara-icon-btn" aria-label="Close chat" type="button">✕</button>
+  </header>
+
+  <div id="elara-messages" class="elara-messages" aria-live="polite"></div>
+
+  <div class="elara-inputbar">
+    <input
+      id="elara-input"
+      type="text"
+      placeholder="Ask about projects, skills, or contact..."
+      autocomplete="off"
+    />
+    <button id="elara-send" type="button">Send</button>
+  </div>
+</section>
+
+<div id="elara-backdrop" class="elara-backdrop" aria-hidden="true"></div>
+
+<style>
+  :root{
+    --elara-primary:#6366f1;
+    --elara-secondary:#8b5cf6;
+    --elara-bg:rgba(15,23,42,.72);
+    --elara-card:rgba(255,255,255,.06);
+    --elara-border:rgba(255,255,255,.12);
+    --elara-text:#e5e7eb;
+    --elara-muted:rgba(229,231,235,.7);
+    --elara-shadow:0 20px 60px rgba(0,0,0,.45);
+    --elara-radius:18px;
+  }
+
+  #elara-fab{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:56px;
+    height:56px;
+    border-radius:999px;
+    border:1px solid var(--elara-border);
+    background:linear-gradient(135deg, var(--elara-primary), var(--elara-secondary));
+    box-shadow:var(--elara-shadow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:9999;
+  }
+
+  .elara-sparkle{
+    color:white;
+    font-size:18px;
+    line-height:1;
+    transform:translateY(-1px);
+  }
+
+  #elara-panel{
+    position:fixed;
+    right:22px;
+    bottom:90px;
+    width:360px;
+    max-width:calc(100vw - 28px);
+    height:520px;
+    max-height:calc(100vh - 120px);
+    display:none;
+    flex-direction:column;
+    border-radius:var(--elara-radius);
+    border:1px solid var(--elara-border);
+    background:var(--elara-bg);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:var(--elara-shadow);
+    overflow:hidden;
+    z-index:10000;
+  }
+
+  .elara-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 14px;
+    border-bottom:1px solid var(--elara-border);
+    background:rgba(255,255,255,.04);
+  }
+
+  .elara-title{
+    font-weight:700;
+    color:var(--elara-text);
+    letter-spacing:.2px;
+  }
+
+  .elara-subtitle{
+    font-size:12px;
+    color:var(--elara-muted);
+    margin-top:2px;
+  }
+
+  .elara-icon-btn{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    border:1px solid var(--elara-border);
+    background:rgba(255,255,255,.05);
+    color:var(--elara-text);
+    cursor:pointer;
+  }
+
+  .elara-messages{
+    flex:1;
+    overflow:auto;
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .elara-msg{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+
+  .elara-bubble{
+    max-width:84%;
+    padding:10px 12px;
+    border-radius:14px;
+    border:1px solid var(--elara-border);
+    background:rgba(255,255,255,.06);
+    color:var(--elara-text);
+    line-height:1.35;
+    font-size:14px;
+    white-space:pre-wrap;
+  }
+
+  .elara-user .elara-bubble{
+    margin-left:auto;
+    background:linear-gradient(135deg, rgba(99,102,241,.22), rgba(139,92,246,.18));
+  }
+
+  .elara-assistant .elara-bubble{
+    background:rgba(255,255,255,.06);
+  }
+
+  .elara-inputbar{
+    display:flex;
+    gap:10px;
+    padding:12px;
+    border-top:1px solid var(--elara-border);
+    background:rgba(255,255,255,.04);
+  }
+
+  #elara-input{
+    flex:1;
+    padding:12px 12px;
+    border-radius:12px;
+    border:1px solid var(--elara-border);
+    background:rgba(255,255,255,.05);
+    color:var(--elara-text);
+    outline:none;
+  }
+
+  #elara-input::placeholder{ color:rgba(229,231,235,.45); }
+
+  #elara-send{
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid var(--elara-border);
+    background:linear-gradient(135deg, var(--elara-primary), var(--elara-secondary));
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  .elara-backdrop{
+    position:fixed;
+    inset:0;
+    display:none;
+    background:rgba(0,0,0,.25);
+    z-index:9998;
+  }
+
+  @media (max-width:520px){
+    #elara-panel{
+      right:14px;
+      bottom:86px;
+      width:calc(100vw - 28px);
+      height:62vh;
+    }
+    #elara-fab{ right:14px; bottom:14px; }
+  }
+</style>
+
+<script>
+  (function(){
+    const fab = document.getElementById("elara-fab");
+    const panel = document.getElementById("elara-panel");
+    const closeBtn = document.getElementById("elara-close");
+    const backdrop = document.getElementById("elara-backdrop");
+    const list = document.getElementById("elara-messages");
+    const input = document.getElementById("elara-input");
+    const send = document.getElementById("elara-send");
+
+    const LINKS = {
+      linkedin: "https://www.linkedin.com/in/basma-elaraby-20207b267/",
+      github: "https://github.com/basmaelaraby"
+    };
+
+    const QUICK = [
+      "What are your main projects?",
+      "What tools do you use?",
+      "How can I contact you?",
+      "Where are you based?"
+    ];
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function openChat(){
+      panel.style.display = "flex";
+      backdrop.style.display = "block";
+      setTimeout(() => input.focus(), 0);
+    }
+
+    function closeChat(){
+      panel.style.display = "none";
+      backdrop.style.display = "none";
+    }
+
+    function scrollToBottom(){
+      list.scrollTop = list.scrollHeight;
+    }
+
+    function addMessage(text, who){
+      const row = document.createElement("div");
+      row.className = "elara-msg " + (who === "user" ? "elara-user" : "elara-assistant");
+
+      const bubble = document.createElement("div");
+      bubble.className = "elara-bubble";
+      bubble.innerHTML = escapeHtml(text);
+
+      row.appendChild(bubble);
+      list.appendChild(row);
+      scrollToBottom();
+      return bubble;
+    }
+
+    function addAssistantTyping(){
+      const bubble = addMessage("Typing…", "assistant");
+      bubble.dataset.typing = "1";
+      return bubble;
+    }
+
+    function replaceTyping(bubble, finalText){
+      bubble.dataset.typing = "";
+      bubble.textContent = "";
+      typeOut(bubble, finalText, 12);
+    }
+
+    function typeOut(el, text, speed){
+      let i = 0;
+      const t = setInterval(() => {
+        el.textContent += text[i] || "";
+        i++;
+        scrollToBottom();
+        if(i >= text.length) clearInterval(t);
+      }, speed);
+    }
+
+    function normalize(q){
+      return q.toLowerCase().trim();
+    }
+
+    function answerFor(qRaw){
+      const q = normalize(qRaw);
+
+      if(q.includes("contact") || q.includes("email") || q.includes("reach")){
+        return "You can reach Basma at basmaelaraby262@gmail.com. LinkedIn: " + LINKS.linkedin;
+      }
+
+      if(q.includes("linkedin")){
+        return "Here is Basma's LinkedIn: " + LINKS.linkedin;
+      }
+
+      if(q.includes("github") || q.includes("code") || q.includes("repo")){
+        return "Here is Basma's GitHub: " + LINKS.github;
+      }
+
+      if(q.includes("location") || q.includes("based") || q.includes("where")){
+        return "Basma is based in St. Paul, MN and is willing to relocate.";
+      }
+
+      if(q.includes("tools") || q.includes("stack") || q.includes("tech")){
+        return "Typical tools: Figma, VS Code, Git/GitHub, and Tailwind CSS. Basma focuses on blending UX/UI design with front end implementation.";
+      }
+
+      if(q.includes("project") || q.includes("portfolio") || q.includes("work")){
+        return "Main highlights include ArtConnect (UX case study + prototype) and coding projects on GitHub. Want links to specific projects?";
+      }
+
+      if(q.includes("creative technologist")){
+        return "Basma describes herself as a Creative Technologist, combining computer science with visual design, art, and UX thinking.";
+      }
+
+      return "I can help with projects, skills, tools, or contact info. Try: “projects”, “tools”, “contact”, or “location”.";
+    }
+
+    function sendUserMessage(){
+      const text = input.value.trim();
+      if(!text) return;
+      addMessage(text, "user");
+      input.value = "";
+
+      const typingBubble = addAssistantTyping();
+      const response = answerFor(text);
+
+      const delay = Math.min(900, Math.max(300, response.length * 8));
+      setTimeout(() => replaceTyping(typingBubble, response), delay);
+    }
+
+    function seedWelcome(){
+      if(list.dataset.seeded) return;
+      list.dataset.seeded = "1";
+
+      addMessage("Hi, I'm Elara. Ask me anything about Basma's work.", "assistant");
+
+      const wrap = document.createElement("div");
+      wrap.style.display = "flex";
+      wrap.style.flexWrap = "wrap";
+      wrap.style.gap = "8px";
+      wrap.style.marginTop = "6px";
+
+      QUICK.forEach(t => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.textContent = t;
+        b.style.padding = "8px 10px";
+        b.style.borderRadius = "999px";
+        b.style.border = "1px solid rgba(255,255,255,.14)";
+        b.style.background = "rgba(255,255,255,.05)";
+        b.style.color = "rgba(229,231,235,.9)";
+        b.style.cursor = "pointer";
+        b.onclick = () => {
+          input.value = t;
+          sendUserMessage();
+        };
+        wrap.appendChild(b);
+      });
+
+      list.appendChild(wrap);
+      scrollToBottom();
+    }
+
+    // Linkify assistant replies for LinkedIn/GitHub when present
+    const observer = new MutationObserver(() => {
+      const bubbles = list.querySelectorAll(".elara-assistant .elara-bubble");
+      bubbles.forEach(b => {
+        if(b.dataset.linkified) return;
+        const txt = b.textContent || "";
+        if(txt.includes("https://")){
+          b.innerHTML = escapeHtml(txt).replaceAll(
+            /(https:\/\/[^\s]+)/g,
+            '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: rgba(167, 139, 250, 1); text-decoration: underline;">$1</a>'
+          );
+        }
+        b.dataset.linkified = "1";
+      });
+    });
+    observer.observe(list, { childList:true, subtree:true });
+
+    fab.addEventListener("click", () => { openChat(); seedWelcome(); });
+    closeBtn.addEventListener("click", closeChat);
+    backdrop.addEventListener("click", closeChat);
+
+    send.addEventListener("click", sendUserMessage);
+    input.addEventListener("keydown", (e) => {
+      if(e.key === "Enter") sendUserMessage();
+      if(e.key === "Escape") closeChat();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeChat();
+    });
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
